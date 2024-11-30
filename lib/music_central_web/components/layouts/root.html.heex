@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" class="[scrollbar-gutter:stable]">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="csrf-token" content={get_csrf_token()} />
+    <.live_title suffix=" · Phoenix Framework">
+      <%= assigns[:page_title] || "MusicCentral" %>
+    </.live_title>
+    <link phx-track-static rel="stylesheet" href={~p"/assets/app.css"} />
+    <script defer phx-track-static type="text/javascript" src={~p"/assets/app.js"}>
+    </script>
+  </head>
+  <body class="bg-gray-50">
+    <header class="px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between border-b border-b-gray-200 py-3 text-sm">
+        <div class="flex items-center gap-4">
+          <a href="/">
+            <img src={~p"/images/musiccentral-logo.png"} width="70" />
+          </a>
+        </div>
+        <div class="flex items-center gap-4 font-semibold leading-6 text-zinc-900">
+          <.link navigate={~p"/store"} class="hover:text-red-800">Store</.link>
+          <.link navigate={~p"/about"} class="hover:text-red-800">About Us</.link>
+          <.link navigate={~p"/lessons"} class="hover:text-red-800">Lessons</.link>
+          <.link navigate={~p"/rentals"} class="hover:text-red-800">Rentals</.link>
+          <%= if @current_user do %>
+            <.link navigate={~p"/user/dashboard"} class="hover:text-red-800">My account</.link>
+          <% else %>
+            <.link navigate={~p"/login"} class="hover:text-red-800">My account</.link>
+          <% end %>
+        </div>
+      </div>
+    </header>
+
+    <%= @inner_content %>
+  </body>
+</html>

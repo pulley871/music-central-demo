@@ -1,0 +1,41 @@
+<header class="px-4 sm:px-6 lg:px-8">
+  <%!-- <div class="flex items-center justify-between border-b border-b-gray-200 py-3 text-sm">
+    <div class="flex items-center gap-4">
+      <a href="/">
+        <img src={~p"/images/musiccentral-logo.png"} width="70" />
+      </a>
+    </div>
+    <div class="flex items-center gap-4 font-semibold leading-6 text-zinc-900">
+      <.link navigate={~p"/about"} class="hover:text-red-800">About Us</.link>
+      <.link navigate={~p"/lessons"} class="hover:text-red-800">Lessons</.link>
+      <.link navigate={~p"/rentals"} class="hover:text-red-800">Rentals</.link>
+
+      <%= if assigns["current_user"] do %>
+        <li class="text-[0.8125rem] leading-6 text-zinc-900">
+          <%= assigns["current_user"].email %>
+        </li>
+        <.link
+          navigate={~p"/users/settings"}
+          class="text-[0.8125rem] leading-6 text-zinc-900 font-semibold hover:text-zinc-700"
+        >
+          Settings
+        </.link>
+        <.link
+          navigate={~p"/users/log_out"}
+          method="delete"
+          class="text-[0.8125rem] leading-6 text-zinc-900 font-semibold hover:text-zinc-700"
+        >
+          Log out
+        </.link>
+      <% else %>
+        <.link navigate={~p"/login"} class="hover:text-red-800">My account</.link>
+      <% end %>
+    </div>
+  </div> --%>
+</header>
+<main class="px-4 py-2 sm:px-6 lg:px-8">
+  <div class="mx-auto max-w-2xl">
+    <.flash_group flash={@flash} />
+    <%= @inner_content %>
+  </div>
+</main>
