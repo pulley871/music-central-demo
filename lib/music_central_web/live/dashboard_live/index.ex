@@ -19,7 +19,7 @@ defmodule MusicCentralWeb.DashboardLive.Index do
     # |> assign(:lessons, format_lessons())
 
     IO.inspect(socket)
-    {:ok, socket, layout: {MusicCentralWeb.Layouts, :account}}
+    {:ok, socket}
   end
 
   def render(assigns) do

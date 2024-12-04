@@ -15,6 +15,16 @@ defmodule MusicCentralWeb.Router do
     plug :spy
   end
 
+  pipeline :user_browser do
+    plug :accepts, ["html"]
+    plug :fetch_session
+    plug :fetch_live_flash
+    plug :put_root_layout, {MusicCentralWeb.Layouts, :account}
+    plug :protect_from_forgery
+    plug :put_secure_browser_headers
+    plug :fetch_current_user
+  end
+
   def spy(conn, _opts) do
     IO.inspect(conn)
     # IO.inspect(conn)
@@ -76,7 +86,7 @@ defmodule MusicCentralWeb.Router do
   end
 
   scope "/", MusicCentralWeb do
-    pipe_through [:browser, :require_authenticated_user]
+    pipe_through [:user_browser, :require_authenticated_user]
 
     live_session :require_authenticated_user,
       on_mount: [{MusicCentralWeb.UserAuth, :ensure_authenticated}] do

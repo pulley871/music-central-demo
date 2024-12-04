@@ -3,7 +3,7 @@ defmodule MusicCentralWeb.AccountLessonsLive.Index do
 
   def mount(_params, _session, socket) do
     socket = assign(socket, page_title: "Lessons")
-    {:ok, socket, layout: {MusicCentralWeb.Layouts, :account}}
+    {:ok, socket}
   end
 
   def render(assigns) do

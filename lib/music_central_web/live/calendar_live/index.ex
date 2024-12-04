@@ -18,7 +18,7 @@ defmodule MusicCentralWeb.CalendarLive.Index do
        time_blocks: time_blocks,
        # Initialize events as an empty map
        events: events
-     ), layout: {MusicCentralWeb.Layouts, :account}}
+     )}
   end
 
   def render(assigns) do

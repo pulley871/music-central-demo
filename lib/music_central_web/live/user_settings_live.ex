@@ -106,7 +106,7 @@ defmodule MusicCentralWeb.UserSettingsLive do
       |> assign(:password_form, to_form(password_changeset))
       |> assign(:trigger_submit, false)
 
-    {:ok, socket, layout: {MusicCentralWeb.Layouts, :account}}
+    {:ok, socket}
   end
 
   def handle_event("validate_email", params, socket) do
